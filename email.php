@@ -11,7 +11,7 @@
                 $email = $_POST['assunto'];
 		$mensagem = $_POST['mensagem'];
 		
-        require 'vendor/autoload.php';
+        require_once 'vendor/autoload.php';
 
         $from = new SendGrid\Email(null, "almoxarifado@omddobrasil.com.br");
         $subject = "Mensagem de contato";
