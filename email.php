@@ -18,7 +18,7 @@ if (isset($_POST['btnSend'])) {
         $email_destinatario = "almoxarifado@omddobrasil.com.br"; // email que receberá as mensagens
         $email_recebidoDe = "$email";
         $email_assunto = "Envio Teste do Formulário de Contato"; // Este será o assunto da mensagem
-        $email_conteudo = "FORMULÁRIO DE CONTATO\n"
+        $email_conteudo = "FORMULÁRIO DE CONTATO - Site OMD do Brasil \n"
             . "<br><b>De:</b> " . $nome
             . "<br><b>Email:</b> " . $email
             . "<br><b>Telefone:</b> " . $telefone
@@ -26,7 +26,7 @@ if (isset($_POST['btnSend'])) {
             . "<br><b>Mensagem:</b> " . $mensagem
             . "<br><br>"
             . "<hr>"
-            . "<br>Mensagem enviada do formulário de contato da demonstração de formulário de contato com php.";
+            . "<br>Mensagem enviada do site omddobrasil.com.br";
 
         //encapsula os dados do cabeçalho do email
         $email_cabecalho = implode("\n", array("From: $email_remetente", "Reply-To: $email_recebidoDe", "Return-Path: $email_remetente", "MIME-Version: 1.0", "X-Priority: 3", "Content-Type: text/html; charset=UTF-8"));
