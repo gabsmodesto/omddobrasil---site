@@ -17,7 +17,7 @@ if (isset($_POST['btnSend'])) {
         $email_remetente = "almoxarifado@omddobrasil.com.br"; // deve ser uma conta de email do seu dominio 
         $email_destinatario = "almoxarifado@omddobrasil.com.br"; // email que receberá as mensagens
         $email_recebidoDe = "$email";
-        $email_assunto = "Envio Teste do Formulário de Contato"; // Este será o assunto da mensagem
+        $email_assunto = "Mensagem - omddobrasil.com.br"; // Este será o assunto da mensagem
         $email_conteudo = "FORMULÁRIO DE CONTATO - Site OMD do Brasil \n"
             . "<br><b>De:</b> " . $nome
             . "<br><b>Email:</b> " . $email
