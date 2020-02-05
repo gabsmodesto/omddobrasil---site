@@ -1,29 +1,31 @@
-<?php
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+        <?php
+		$nome = $_POST['nome'];
+		$email = $_POST['email'];
+                $email = $_POST['assunto'];
+		$mensagem = $_POST['mensagem'];
+		
+        require 'vendor/autoload.php';
 
-if(isset($_POST(['email']) && !empty($_POST(['email'])){
+        $from = new SendGrid\Email(null, "almoxarifado@omddobrasil.com.br");
+        $subject = "Mensagem de contato";
+        $to = new SendGrid\Email(null, "designgraficoomddobrasil@gmail.com");
+        $content = new SendGrid\Content("text/html", "Olá Cesar, <br><br>Nova mensagem de contato<br><br>Nome: $nome<br>Email: $email <br><br>Assunto: $assunto<br>Mensagem: $mensagem");
+        $mail = new SendGrid\Mail($from, $subject, $to, $content);
+        
+        //Necessário inserir a chave
+        $apiKey = 'SENDGRID_API_KEY';
+        $sg = new \SendGrid($apiKey);
 
-$nome = addcslashes ($_POST (['name']))
-$email = addcslashes ($_POST (['email']))
-$assunto = addcslashes ($_POST (['assunto']))
-$mensagem = addcslashes ($_POST (['message']))
-
-$to = "almoxarifado@omddobrasil.com.br"
-$subject = "Contato - OMD do Brasil"
-$body = "Nome: ".$nome. "\r\n"
-        "Email: ".$email. "\r\n"
-        "Assunto: ".$assunto. "\r\n"
-        "Mensagem: ".$mensagem;
-$header = "From: almoxarifado@servitel.com.br"."\r\n"
-    ."Reply-To:".$email."\e\n"
-    ."X=Mailer:PHP/".phpversion ();
-
-if(mail($to,$subject,$body,$header)){
-
-    echo("E-mail enviado com sucesso, em breve retornaremos!");
-}else{
-    echo("O e-mail não pode ser enviado.") ";"
-}
-
-}
-
-?>
+        $response = $sg->client->mail()->send()->post($mail);
+        echo "Mensagem enviada com sucesso";
+		
+        ?>
+    </body>
+</html>
