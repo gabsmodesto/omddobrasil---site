@@ -100,7 +100,7 @@
               <h3>E-mail</h3>
               <p><a href="mailto:engenharia@omddobrasil.com">engenharia@omddobrasil.com.br
               </a></p>
-              <p><a href="mailto:comercial@omddobrasil.com">comercial02@omddobrasil.com.br
+              <p><a href="mailto:comercial02@omddobrasil.com">comercial02@omddobrasil.com.br
               </a></p>
               <p><a href="mailto:vendas@omddobrasil.com">vendas@omddobrasil.com.br
               </a></p>
@@ -114,19 +114,73 @@
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.906405550611!2d-47.99990878465478!3d-21.11629728174293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b999d87b908e07%3A0x1edde594339b97c4!2sOMD%20do%20Brasil%20Sistemas%20e%20Com%C3%A9rcio%20de%20Eletr%C3%B4nicos%20LTDA!5e0!3m2!1spt-BR!2sbr!4v1580733355433!5m2!1spt-BR!2sbr" width="100%" height="250" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
       </div>
 
-      <div class="container">
-          <body>
-           
-            <section class="contato">
-              <form class="form" method="POST" action="./email.php">
-                <input class="field" name="name" placeholder="Nome">
-                <input class="field" name="email" placeholder="E-mail">
-                <input class="field" name="assunto" placeholder="Assunto">
-                <textarea class="field" name="mesage" placeholder="Digite sua mensagem aqui."></textarea>
-                <input class="button" type="submit" value="Enviar">
+     
+        <body>
+          <main class="container">
+              
+              <br>
+              <form class="form-horizontal" action="index.php#formulario" method="post" role="form" data-toggle="validator">
+                  <div class="form-group">
+                      <label class="control-label col-sm-3">Nome*:</label>
+                      <div class="col-sm-9">
+                          <input type="text" class="form-control" name="nome" id="nome" value="" placeholder="Seu nome" required >
+                          <div class="help-block with-errors"></div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="control-label col-sm-3">E-mail*:</label>
+                      <div class="col-sm-9">
+                          <input type="email" class="form-control" name="email" id="email" value="" placeholder="Seu e-mail" required>
+                          <div class="help-block with-errors"></div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="control-label col-sm-3">Telefone*:</label>
+                      <div class="col-sm-9">
+                          <input type="number" class="form-control" name="telefone" id="telefone" placeholder="(00) 00000-0000" required>
+                          <div class="help-block with-errors"></div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="control-label col-sm-3">Assunto*:</label>
+                      <div class="col-sm-9">
+                          <select class="form-control" name="assunto" required>
+                              <option value="" selected="selected" disabled="disabled">Escolha uma opção</option>
+                              <option value="contato">Contato</option>
+                              <option value="vendas">Vendas</option>
+                              <option value="financeiro">Financerio</option>
+                              <option value="informacoes">Informações</option>
+                              <option value="informacoes">Engenharia</option>
+                          </select>
+                          <div class="help-block with-errors"></div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="control-label col-sm-3">Mensagem*:</label>
+                      <div class="col-sm-9">
+                          <textarea class="form-control" id="exampleTextarea" rows="6" 
+                                    id="mensagem" name="mensagem" placeholder="Sua Mensagem" required></textarea>
+                          <div class="help-block with-errors"></div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <div class="col-md-12 text-right">
+                          <input class = "btn btn-primary" id="submit" name="btnSend" type="submit" value="ENVIAR">
+                          <a name="formulario"></a>
+                          <div class="mensagem-alerta"><?php echo $msg ?></div>
+                      </div>
+                  </div>
               </form>
-            </section>
-            </body>
+          </main>
+          <footer>
+              <hr> 
+          </footer>
+          <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+  
+      </body>
+      
 
       </div>
     </section><!-- #contact -->
