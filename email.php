@@ -7,11 +7,12 @@ if (isset($_POST['btnSend'])) {
     //campos do formulario
     $nome = $_POST['nome'];
     $email = $_POST['email'];
+    $telefone = $_POST['telefone'];
     $assunto = $_POST["assunto"];
     $mensagem = $_POST['mensagem'];
 
     //valida se os campos não estão vazios
-    if ((!empty($nome)) && (!empty($email)) && (!empty($assunto)) && (!empty($mensagem))) {
+    if ((!empty($nome)) && (!empty($email)) && (!empty($telefone)) && (!empty($assunto)) && (!empty($mensagem))) {
         
         $email_remetente = "almoxarifado@omddobrasil.com.br"; // deve ser uma conta de email do seu dominio 
         $email_destinatario = "almoxarifado@omddobrasil.com.br"; // email que receberá as mensagens
